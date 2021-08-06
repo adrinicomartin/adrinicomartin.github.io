@@ -10,12 +10,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css" />
   </head>
   <body>
-    <h1>DEFAULT ZENDESK WIDGET DEMO</h1>
-    <h2>Considerations</h2>
-    <ul>
-      <li>Doesn't support live chat</li>
-    </ul>
-    <iframe src="https://bevy1609863206.zendesk.com/hc/en-us/requests/new?ticket_form_id=1500000084361&output=embed" frameborder="0"></iframe>
+    <div class="container">
+      <h1>Zendesk Integration demo for GDG</h1>
+      <h2>Considerations</h2>
+      <ul>
+        <li>Doesn't support live chat</li>
+        <li>
+          It´s not possible to inject the same <a href="https://bevy1609863206.zendesk.com/hc/en-us/requests/new">submit ticket page</a> for security reasons<br />
+          <iframe src="https://bevy1609863206.zendesk.com/hc/en-us/requests/new?ticket_form_id=1500000084361" frameborder="0"></iframe>
+        </li>
+      </ul>
+    </div>
     <!-- Start of bevy1609863206 Zendesk Widget script -->
     <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=63cdd26f-38a3-47af-bd4e-49f4eec35068"></script>
     <script type="text/javascript">
@@ -235,6 +240,7 @@
 
       zESettings = {
         webWidget: {
+          color: { theme: "#4285F4", launcherText: "#ffffff", button: "#ffffff", header: "#203D9D", resultLists: "#691840" },
           chat: { suppress: true },
           contactForm: {
             ticketForms: [
