@@ -25,9 +25,8 @@
     </div>
     <!-- Start of bevy1609863206 Zendesk Widget script -->
     <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=63cdd26f-38a3-47af-bd4e-49f4eec35068"></script>
-    <script id="ze-custom-functions"  type="text/javascript">
-    (function (window) {
-    }(this))
+    <script id="ze-bevy-support" src="bevysupport.js" type="text/javascript"></script>
+    <!-- <script id="ze-custom-functions"  type="text/javascript">
     function supportGetRunningEnvironment() {
       try {
         
@@ -214,12 +213,12 @@
       return location.hostname;
     }
 
-    </script>
+    </script> -->
     <script type="text/javascript">
       (function (window) {
-        document.getElementById("supportGetRunningEnvironmentResult").textContent = supportGetRunningEnvironment();
-        document.getElementById("supportGetSessionidResult").textContent = supportGetSessionid();
-        document.getElementById("supportSiteURLResult").textContent = supportSiteURL();
+        document.getElementById("supportGetRunningEnvironmentResult").textContent = bevySupport.getRunningEnvironmentInfo();
+        document.getElementById("supportGetSessionidResult").textContent = bevySupport.getSupportID();
+        document.getElementById("supportSiteURLResult").textContent = bevySupport.getSiteHost();
       }(this))
     </script>
     <script type="text/javascript">
@@ -228,16 +227,6 @@
       }
       function supportGetUserEmail() {
         return "testusername1@mail.com";
-      }
-      function supportHideField(d, fieldid) {
-        try {
-          let fs = d.querySelector('[name="key:' + fieldid + '"]');
-          if (fs) {
-            fs.parentNode.parentElement.hidden = true;
-          }
-        } catch (error) {
-          console.error(error);
-        }
       }
 
       zESettings = {
@@ -254,9 +243,9 @@
                     id: "description",
                     hideHint: true,
                   },
-                  { id: 1900000019625, prefill: { "*": supportSiteURL() } },
-                  { id: 1500007316421, prefill: { "*": supportGetSessionid() } },
-                  { id: 1500009023541, prefill: { "*": supportGetRunningEnvironment() } },
+                  { id: 1900000019625, prefill: { "*": bevySupport.getRunningEnvironmentInfo() } },
+                  { id: 1500007316421, prefill: { "*": bevySupport.getSessionid() } },
+                  { id: 1500009023541, prefill: { "*": bevySupport.getSiteHost() } },
                 ],
               },
             ],
@@ -270,11 +259,11 @@
           if (userEvent.action === "Contact Form Shown") {
             let webWidget = document.getElementById("webWidget");
             if (webWidget) {
-              supportHideField(webWidget.contentDocument.body, "1900000019625");
-              supportHideField(webWidget.contentDocument.body, "1500007316421");
-              supportHideField(webWidget.contentDocument.body, "1500009023541");
-              supportHideField(webWidget.contentDocument.body, "1500007319861"); // Please select the nature of your request
-              supportHideField(webWidget.contentDocument.body, "1500007133681"); //Please select the product or specific feature this ticket is about
+              bevySupport.zeHideFormField(webWidget.contentDocument.body, "1900000019625");
+              bevySupport.zeHideFormField(webWidget.contentDocument.body, "1500007316421");
+              bevySupport.zeHideFormField(webWidget.contentDocument.body, "1500009023541");
+              bevySupport.zeHideFormField(webWidget.contentDocument.body, "1500007319861"); // Please select the nature of your request
+              bevySupport.zeHideFormField(webWidget.contentDocument.body, "1500007133681"); //Please select the product or specific feature this ticket is about
             }
           }
         } catch (error) {
