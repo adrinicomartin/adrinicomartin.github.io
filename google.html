@@ -225,7 +225,7 @@
         return "OS: " + window.jscd.os + " " + window.jscd.osVersion + "\n" + "Browser: " + window.jscd.browser + " " + window.jscd.browserMajorVersion + " (" + window.jscd.browserVersion + ")\n" + "Mobile: " + window.jscd.mobile + "\n" + "Flash: " + window.jscd.flashVersion + "\n" + "Cookies: " + window.jscd.cookies + "\n" + "Screen Size: " + window.jscd.screen + "\n" + "Full User Agent: " + navigator.userAgent;
       }
       function supportSiteURL() {
-        return document.documentURI;
+        return location.hostname;
       }
 
       function supportHideField(d, fieldid) {
@@ -246,7 +246,7 @@
           contactForm: {
             ticketForms: [
               {
-                id: 1900000158745,
+                id: 1500000084361,
                 title: false,
                 subject: false,
                 fields: [
@@ -254,15 +254,11 @@
                     id: "description",
                     hideHint: true,
                   },
+                  { id: 1900000019625, prefill: { "*": supportSiteURL() } },
+                  { id: 1500007316421, prefill: { "*": supportGetSessionid() } },
+                  { id: 1500009023541, prefill: { "*": supportGetRunningEnvironment() } },
                 ],
               },
-            ],
-            fields: [
-              { id: "name", prefill: { "*": supportGetUserName() } },
-              { id: "email", prefill: { "*": supportGetUserEmail() } },
-              { id: 1900000019625, prefill: { "*": supportSiteURL() } },
-              { id: 1500007316421, prefill: { "*": supportGetSessionid() } },
-              { id: 1500009023541, prefill: { "*": supportGetRunningEnvironment() } },
             ],
           },
         },
