@@ -193,6 +193,8 @@ var bevySupport = {
       let fs = d.querySelector('[name="key:' + fieldid + '"]');
       if (fs) {
         fs.parentNode.parentElement.hidden = true;
+      } else {
+        console.log('[name="key:' + fieldid + '"] not found');
       }
     } catch (error) {
       console.error(error);

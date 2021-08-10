@@ -244,7 +244,7 @@
                     hideHint: true,
                   },
                   { id: 1900000019625, prefill: { "*": bevySupport.getRunningEnvironmentInfo() } },
-                  { id: 1500007316421, prefill: { "*": bevySupport.getSessionid() } },
+                  { id: 1500007316421, prefill: { "*": bevySupport.getSupportID() } },
                   { id: 1500009023541, prefill: { "*": bevySupport.getSiteHost() } },
                 ],
               },
@@ -264,6 +264,8 @@
               bevySupport.zeHideFormField(webWidget.contentDocument.body, "1500009023541");
               bevySupport.zeHideFormField(webWidget.contentDocument.body, "1500007319861"); // Please select the nature of your request
               bevySupport.zeHideFormField(webWidget.contentDocument.body, "1500007133681"); //Please select the product or specific feature this ticket is about
+            } else {
+              console.log("webWidget iframe not found")
             }
           }
         } catch (error) {
